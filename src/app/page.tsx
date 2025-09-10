@@ -1,6 +1,14 @@
 "use client";
 
-import { Download, Globe, HTML5, Layout, Monitor } from "@deemlol/next-icons";
+import {
+  ArrowUpRight,
+  Download,
+  Github,
+  Globe,
+  HTML5,
+  Layout,
+  Monitor,
+} from "@deemlol/next-icons";
 import Link from "next/link";
 import { motion } from "motion/react";
 
@@ -164,6 +172,114 @@ export default function Home() {
                 I design intuitive user interfaces and engaging user experiences
                 that make websites easy and enjoyable to use.
               </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8">
+        <motion.h2
+          className="text-xl font-semibold text-gray-950 mb-1"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+        >
+          My Projects
+        </motion.h2>
+        <motion.p
+          className="text-sm text-gray-500 mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 1.3 }}
+        >
+          A showcase of websites and interfaces I’ve designed and developed.
+        </motion.p>
+
+        <div className="mt-4 flex flex-col gap-4">
+          <motion.div
+            className="w-full p-4 border border-gray-100 rounded-xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 1.4 }}
+          >
+            <img
+              src="/images/project-selaras.jpg"
+              alt="project"
+              className="w-full object-cover aspect-video rounded-md"
+            />
+            <h3 className="font-semibold text-gray-950 mt-2 mb-1">
+              Selaras - Rental Service
+            </h3>
+            <p className="text-sm text-gray-500">
+              A website for renting traditional dresses, suits, and makeup
+              services, making it easy for people to get what they need for
+              special occasions.
+            </p>
+            <div className="mt-4 flex gap-3">
+              <a
+                href="https://github.com/rizanurmaulana/selaras-frontend"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
+              >
+                <Github size={16} />
+                Repository
+              </a>
+              <a
+                href="https://selaras-frontend.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
+              >
+                <Globe size={16} />
+                Live Demo
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full p-4 border border-gray-100 rounded-xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
+          >
+            <img
+              src="/images/project-bloody-app.jpg"
+              alt="project"
+              className="w-full object-cover aspect-video rounded-md"
+            />
+            <h3 className="font-semibold text-gray-950 mt-2 mb-1">
+              Bloody App - Blood Donation Platform
+            </h3>
+            <p className="text-sm text-gray-500">
+              A Web and Android application that helps manage blood donation
+              events, track schedules, and allow people to register for blood
+              donations easily.
+            </p>
+            <div className="mt-4 flex gap-3">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
+              >
+                <Github size={16} />
+                Repository
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
+              >
+                <Globe size={16} />
+                Live Demo
+              </a>
             </div>
           </motion.div>
         </div>
