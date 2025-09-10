@@ -1,6 +1,6 @@
 "use client";
 
-import { Download } from "@deemlol/next-icons";
+import { Download, Globe, HTML5, Layout, Monitor } from "@deemlol/next-icons";
 import Link from "next/link";
 import { motion } from "motion/react";
 
@@ -83,6 +83,90 @@ export default function Home() {
             </Link>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Services Section */}
+      <section className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8">
+        <motion.h2
+          className="text-xl font-semibold text-gray-950 mb-1"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          Things I’ll do for you
+        </motion.h2>
+        <motion.p
+          className="text-sm text-gray-500 mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          I help bring your ideas to life with simple, modern, and user-friendly
+          websites.
+        </motion.p>
+
+        <div className="mt-4 flex flex-col gap-4">
+          <motion.div
+            className="w-full p-4 border border-gray-100 rounded-xl flex items-start gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
+              <HTML5 size={20} className="text-gray-950" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-semibold text-gray-950 mb-2">Web Design</h3>
+              <p className="text-sm text-gray-500">
+                I craft visually appealing, responsive, and user-friendly
+                website interfaces that enhance user experience.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full p-4 border border-gray-100 rounded-xl flex items-start gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+          >
+            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
+              <Globe size={20} className="text-gray-950" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-semibold text-gray-950 mb-2">
+                Web Development
+              </h3>
+              <p className="text-sm text-gray-500">
+                I build websites that are easy to use, visually appealing, and
+                help bring your ideas to life online.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full p-4 border border-gray-100 rounded-xl flex items-start gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+          >
+            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
+              <Monitor size={20} className="text-gray-950" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-semibold text-gray-950 mb-2">UI/UX Design</h3>
+              <p className="text-sm text-gray-500">
+                I design intuitive user interfaces and engaging user experiences
+                that make websites easy and enjoyable to use.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </section>
     </main>
   );
