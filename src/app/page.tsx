@@ -1,12 +1,12 @@
 "use client";
 
 import {
-  ArrowUpRight,
   Download,
   Github,
   Globe,
   HTML5,
-  Layout,
+  Instagram,
+  Linkedin,
   Monitor,
 } from "@deemlol/next-icons";
 import Link from "next/link";
@@ -68,7 +68,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-3"
+            className="flex gap-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -76,7 +76,7 @@ export default function Home() {
           >
             <Link
               href="#"
-              className="bg-gray-950 px-4 sm:px-5 h-10 inline-flex items-center text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
+              className="bg-gray-950 px-4 sm:px-5 h-10 inline-flex items-center text-white text-sm font-medium rounded-md hover:bg-gray-800 transition"
             >
               View My Work
             </Link>
@@ -84,7 +84,7 @@ export default function Home() {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 sm:px-5 h-10 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
+              className="px-4 sm:px-5 h-10 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition"
             >
               <Download size={16} />
               Download CV
@@ -284,6 +284,80 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8">
+        <motion.h2
+          className="text-xl font-semibold text-gray-950 mb-1"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 1.7 }}
+        >
+          Let’s Work Together
+        </motion.h2>
+        <motion.p
+          className="text-sm text-gray-500 mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 1.8 }}
+        >
+          Feel free to reach out for collaborations, opportunities, or just to
+          say hi!
+        </motion.p>
+
+        <motion.div
+          className="mt-6 flex gap-4 text-gray-600"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 1.9 }}
+        >
+          <a
+            href="https://github.com/rizanurmaulana"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-gray-950 hover:underline flex items-center"
+          >
+            <Github size={16} className="inline mr-1" />
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/rizanurmaulana"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-gray-950 hover:underline flex items-center"
+          >
+            <Linkedin size={16} className="inline mr-1" />
+            LinkedIn
+          </a>
+          <a
+            href="https://www.instagram.com/rizanurmaulana_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-gray-950 hover:underline flex items-center"
+          >
+            <Instagram size={16} className="inline mr-1" />
+            Instagram
+          </a>
+        </motion.div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="container mx-auto mt-16 max-w-md sm:max-w-2xl p-4 sm:p-8">
+        <motion.p
+          className="text-xs text-gray-500 border-t border-gray-100 pt-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 2.0 }}
+        >
+          © 2025{" "}
+          <span className="font-medium text-gray-700">Riza Nur Maulana</span> ·
+          All rights reserved.
+        </motion.p>
+      </footer>
     </main>
   );
 }
