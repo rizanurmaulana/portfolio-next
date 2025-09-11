@@ -12,6 +12,8 @@ import {
 import Link from "next/link";
 import { motion } from "motion/react";
 
+import { projects } from "@/data/projects";
+
 export default function Home() {
   return (
     <main>
@@ -75,13 +77,13 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <Link
-              href="#"
+              href="#projects"
               className="bg-gray-950 px-4 sm:px-5 h-10 inline-flex items-center text-white text-sm font-medium rounded-md hover:bg-gray-800 transition"
             >
               View My Work
             </Link>
             <Link
-              href="#"
+              href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 sm:px-5 h-10 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition"
@@ -178,7 +180,10 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8">
+      <section
+        id="projects"
+        className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8"
+      >
         <motion.h2
           className="text-xl font-semibold text-gray-950 mb-1"
           initial={{ opacity: 0, y: 20 }}
@@ -199,89 +204,45 @@ export default function Home() {
         </motion.p>
 
         <div className="mt-4 flex flex-col gap-4">
-          <motion.div
-            className="w-full p-4 border border-gray-100 rounded-xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-          >
-            <img
-              src="/images/project-selaras.jpg"
-              alt="project"
-              className="w-full object-cover aspect-video rounded-md"
-            />
-            <h3 className="font-semibold text-gray-950 mt-2 mb-1">
-              Selaras - Rental Service
-            </h3>
-            <p className="text-sm text-gray-500">
-              A website for renting traditional dresses, suits, and makeup
-              services, making it easy for people to get what they need for
-              special occasions.
-            </p>
-            <div className="mt-4 flex gap-3">
-              <a
-                href="https://github.com/rizanurmaulana/selaras-frontend"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
-              >
-                <Github size={16} />
-                Repository
-              </a>
-              <a
-                href="https://selaras-frontend.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
-              >
-                <Globe size={16} />
-                Live Demo
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="w-full p-4 border border-gray-100 rounded-xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-          >
-            <img
-              src="/images/project-bloody-app.jpg"
-              alt="project"
-              className="w-full object-cover aspect-video rounded-md"
-            />
-            <h3 className="font-semibold text-gray-950 mt-2 mb-1">
-              Bloody App - Blood Donation Platform
-            </h3>
-            <p className="text-sm text-gray-500">
-              A Web and Android application that helps manage blood donation
-              events, track schedules, and allow people to register for blood
-              donations easily.
-            </p>
-            <div className="mt-4 flex gap-3">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
-              >
-                <Github size={16} />
-                Repository
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
-              >
-                <Globe size={16} />
-                Live Demo
-              </a>
-            </div>
-          </motion.div>
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="w-full p-4 border border-gray-100 rounded-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full object-cover aspect-video rounded-md"
+              />
+              <h3 className="font-semibold text-gray-950 mt-2 mb-1">
+                {project.title}
+              </h3>
+              <p className="text-sm text-gray-500">{project.desc}</p>
+              <div className="mt-4 flex gap-3">
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
+                >
+                  <Github size={16} />
+                  Repository
+                </a>
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
+                >
+                  <Globe size={16} />
+                  Live Demo
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
