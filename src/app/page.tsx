@@ -37,7 +37,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5 }}
           >
             Hey there 👋, I am{" "}
             <span className="text-gray-800 font-semibold">
@@ -50,7 +50,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
           >
             I build responsive and user-friendly websites that deliver seamless
             digital experiences.
@@ -61,7 +61,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6 }}
           >
             I am a Web Developer passionate about turning designs into
             interactive, responsive, and visually appealing websites.
@@ -72,7 +72,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6 }}
           >
             <Link
               href="#"
@@ -100,7 +100,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           Things I’ll do for you
         </motion.h2>
@@ -109,7 +109,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.5 }}
         >
           I help bring your ideas to life with simple, modern, and user-friendly
           websites.
@@ -121,7 +121,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
               <HTML5 size={20} className="text-gray-950" />
@@ -140,7 +140,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
               <Globe size={20} className="text-gray-950" />
@@ -161,7 +161,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
               <Monitor size={20} className="text-gray-950" />
@@ -184,7 +184,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
+          transition={{ duration: 0.5 }}
         >
           My Projects
         </motion.h2>
@@ -193,7 +193,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 1.3 }}
+          transition={{ duration: 0.5 }}
         >
           A showcase of websites and interfaces I’ve designed and developed.
         </motion.p>
@@ -204,7 +204,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: 1.4 }}
+            transition={{ duration: 0.5 }}
           >
             <img
               src="/images/project-selaras.jpg"
@@ -246,7 +246,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
+            transition={{ duration: 0.5 }}
           >
             <img
               src="/images/project-bloody-app.jpg"
@@ -292,7 +292,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 1.7 }}
+          transition={{ duration: 0.5 }}
         >
           Let’s Work Together
         </motion.h2>
@@ -301,7 +301,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 1.8 }}
+          transition={{ duration: 0.5 }}
         >
           Feel free to reach out for collaborations, opportunities, or just to
           say hi!
@@ -312,7 +312,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, delay: 1.9 }}
+          transition={{ duration: 0.6 }}
         >
           <a
             href="https://github.com/rizanurmaulana"
@@ -351,7 +351,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, delay: 2.0 }}
+          transition={{ duration: 0.6 }}
         >
           © 2025{" "}
           <span className="font-medium text-gray-700">Riza Nur Maulana</span> ·
