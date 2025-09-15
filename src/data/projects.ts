@@ -1,5 +1,12 @@
 export const projects = [
   {
+    image: "/images/project-goout.jpg",
+    title: "Goout - Travel Web Design",
+    desc: "A modern travel website design for exploring destinations.",
+    repo: "https://github.com/rizanurmaulana/goout",
+    demo: "https://rizanurmaulana.github.io/goout/",
+  },
+  {
     image: "/images/project-selaras.jpg",
     title: "Selaras - Rental Service",
     desc: "A website for renting traditional dresses, suits, and makeup services.",
