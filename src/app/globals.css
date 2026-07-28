@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -28,6 +30,15 @@ body {
   font-family: var(--font-plus-jakarta-sans), sans-serif;
 }
 
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
 ::selection {
   background: black;
   color: white;
@@ -42,6 +53,14 @@ body {
   background-color: #030712;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #e5e7eb;
+}
+
 ::-webkit-scrollbar-track {
   background-color: #ffffff;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #0a0a0a;
 }

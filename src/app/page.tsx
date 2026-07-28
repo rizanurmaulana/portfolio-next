@@ -8,20 +8,41 @@ import {
   Instagram,
   Linkedin,
   Monitor,
+  Moon,
+  Sun,
 } from "@deemlol/next-icons";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 
 import { projects } from "@/data/projects";
 
 export default function Home() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const initialDark = storedTheme ? storedTheme === "dark" : prefersDark;
+
+    setIsDark(initialDark);
+    document.documentElement.classList.toggle("dark", initialDark);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
+
   return (
-    <main>
+    <main className="min-h-screen bg-white text-gray-950 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
       {/* Hero Section */}
       <section className="container mx-auto mt-16 max-w-md sm:max-w-2xl">
         <motion.div className="p-4 sm:p-8">
           <motion.div
-            className="mb-6 flex flex-wrap w-fit items-center gap-2 px-3 py-1 text-xs sm:text-sm font-medium border border-gray-300 rounded-full text-gray-700"
+            className="mb-6 flex flex-wrap w-fit items-center gap-2 px-3 py-1 text-xs sm:text-sm font-medium border border-gray-300 rounded-full text-gray-700 dark:border-gray-700 dark:text-gray-300"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -35,20 +56,20 @@ export default function Home() {
           </motion.div>
 
           <motion.p
-            className="mb-4 text-gray-500 font-medium text-sm sm:text-base"
+            className="mb-4 text-gray-500 font-medium text-sm sm:text-base dark:text-gray-400"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
           >
             Hey there 👋, I am{" "}
-            <span className="text-gray-800 font-semibold">
+            <span className="text-gray-800 font-semibold dark:text-gray-100">
               Riza Nur Maulana
             </span>
           </motion.p>
 
           <motion.h1
-            className="mb-5 text-2xl sm:text-3xl font-semibold text-gray-950 leading-snug"
+            className="mb-5 text-2xl sm:text-3xl font-semibold text-gray-950 leading-snug dark:text-gray-50"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -59,7 +80,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p
-            className="mb-8 text-gray-700 text-sm sm:text-base"
+            className="mb-8 text-gray-700 text-sm sm:text-base dark:text-gray-300"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -78,7 +99,7 @@ export default function Home() {
           >
             <Link
               href="#projects"
-              className="bg-gray-950 px-4 sm:px-5 h-10 inline-flex items-center text-white text-sm font-medium rounded-md hover:bg-gray-800 transition"
+              className="bg-gray-950 px-4 sm:px-5 h-10 inline-flex items-center text-white text-sm font-medium rounded-md hover:bg-gray-800 transition dark:bg-gray-100 dark:text-gray-950 dark:hover:bg-gray-300"
             >
               View My Work
             </Link>
@@ -86,7 +107,7 @@ export default function Home() {
               href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 sm:px-5 h-10 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition"
+              className="px-4 sm:px-5 h-10 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition dark:border-gray-700 dark:text-gray-200 dark:bg-gray-900 dark:hover:bg-gray-800"
             >
               <Download size={16} />
               Download CV
@@ -98,7 +119,7 @@ export default function Home() {
       {/* Services Section */}
       <section className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8">
         <motion.h2
-          className="text-xl font-semibold text-gray-950 mb-1"
+          className="text-xl font-semibold text-gray-950 mb-1 dark:text-gray-50"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -107,7 +128,7 @@ export default function Home() {
           Things I’ll do for you
         </motion.h2>
         <motion.p
-          className="text-sm text-gray-500 mb-4"
+          className="text-sm text-gray-500 mb-4 dark:text-gray-400"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -119,18 +140,20 @@ export default function Home() {
 
         <div className="mt-4 flex flex-col gap-4">
           <motion.div
-            className="w-full p-4 border border-gray-100 rounded-xl flex items-start gap-4"
+            className="w-full p-4 border border-gray-100 dark:border-gray-800 rounded-xl flex items-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
-              <HTML5 size={20} className="text-gray-950" />
+            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg dark:border-gray-700">
+              <HTML5 size={20} className="text-gray-950 dark:text-gray-100" />
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-950 mb-2">Web Design</h3>
-              <p className="text-sm text-gray-500">
+              <h3 className="font-semibold text-gray-950 mb-2 dark:text-gray-50">
+                Web Design
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 I craft visually appealing, responsive, and user-friendly
                 website interfaces that enhance user experience.
               </p>
@@ -138,20 +161,20 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="w-full p-4 border border-gray-100 rounded-xl flex items-start gap-4"
+            className="w-full p-4 border border-gray-100 dark:border-gray-800 rounded-xl flex items-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
-              <Globe size={20} className="text-gray-950" />
+            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg dark:border-gray-700">
+              <Globe size={20} className="text-gray-950 dark:text-gray-100" />
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-950 mb-2">
+              <h3 className="font-semibold text-gray-950 mb-2 dark:text-gray-50">
                 Web Development
               </h3>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 I build websites that are easy to use, visually appealing, and
                 help bring your ideas to life online.
               </p>
@@ -159,18 +182,20 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="w-full p-4 border border-gray-100 rounded-xl flex items-start gap-4"
+            className="w-full p-4 border border-gray-100 dark:border-gray-800 rounded-xl flex items-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg">
-              <Monitor size={20} className="text-gray-950" />
+            <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center border border-gray-100 rounded-lg dark:border-gray-700">
+              <Monitor size={20} className="text-gray-950 dark:text-gray-100" />
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-950 mb-2">UI/UX Design</h3>
-              <p className="text-sm text-gray-500">
+              <h3 className="font-semibold text-gray-950 mb-2 dark:text-gray-50">
+                UI/UX Design
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 I design intuitive user interfaces and engaging user experiences
                 that make websites easy and enjoyable to use.
               </p>
@@ -185,7 +210,7 @@ export default function Home() {
         className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8"
       >
         <motion.h2
-          className="text-xl font-semibold text-gray-950 mb-1"
+          className="text-xl font-semibold text-gray-950 mb-1 dark:text-gray-50"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -194,7 +219,7 @@ export default function Home() {
           My Projects
         </motion.h2>
         <motion.p
-          className="text-sm text-gray-500 mb-4"
+          className="text-sm text-gray-500 mb-4 dark:text-gray-400"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -213,7 +238,7 @@ export default function Home() {
             return (
               <motion.div
                 key={index}
-                className="w-full p-4 border border-gray-100 rounded-xl"
+                className="w-full p-4 border border-gray-100 rounded-xl dark:border-gray-800"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -228,23 +253,25 @@ export default function Home() {
                   {project.category.map((category) => (
                     <span
                       key={category}
-                      className="inline-flex items-center rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700"
+                      className="inline-flex items-center rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200"
                     >
                       {category}
                     </span>
                   ))}
                 </div>
-                <h3 className="font-semibold text-gray-950 mt-2 mb-1">
+                <h3 className="font-semibold text-gray-950 mt-2 mb-1 dark:text-gray-50">
                   {project.title}
                 </h3>
-                <p className="text-sm text-gray-500">{project.desc}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {project.desc}
+                </p>
                 <div className="mt-4 flex gap-3">
                   {hasRepoLink && (
                     <a
                       href={project.repo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
+                      className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center dark:bg-gray-100 dark:text-gray-950 dark:hover:bg-gray-300"
                     >
                       <Github size={16} />
                       Repository
@@ -255,7 +282,7 @@ export default function Home() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
+                      className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center dark:border-gray-600 dark:text-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700"
                     >
                       <Globe size={16} />
                       Live Demo
@@ -271,7 +298,7 @@ export default function Home() {
       {/* Contact Section */}
       <section className="container mx-auto mt-4 max-w-md sm:max-w-2xl p-4 sm:p-8">
         <motion.h2
-          className="text-xl font-semibold text-gray-950 mb-1"
+          className="text-xl font-semibold text-gray-950 mb-1 dark:text-gray-50"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -280,7 +307,7 @@ export default function Home() {
           Let’s Work Together
         </motion.h2>
         <motion.p
-          className="text-sm text-gray-500 mb-4"
+          className="text-sm text-gray-500 mb-4 dark:text-gray-400"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -291,7 +318,7 @@ export default function Home() {
         </motion.p>
 
         <motion.div
-          className="mt-6 flex gap-4 text-gray-600"
+          className="mt-6 flex gap-4 text-gray-600 dark:text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -301,7 +328,7 @@ export default function Home() {
             href="https://github.com/rizanurmaulana"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-gray-950 hover:underline flex items-center"
+            className="text-sm font-medium text-gray-950 hover:underline flex items-center dark:text-gray-100"
           >
             <Github size={16} className="inline mr-1" />
             GitHub
@@ -310,7 +337,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/rizanurmaulana"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-gray-950 hover:underline flex items-center"
+            className="text-sm font-medium text-gray-950 hover:underline flex items-center dark:text-gray-100"
           >
             <Linkedin size={16} className="inline mr-1" />
             LinkedIn
@@ -319,7 +346,7 @@ export default function Home() {
             href="https://www.instagram.com/rizanurmaulana_"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-gray-950 hover:underline flex items-center"
+            className="text-sm font-medium text-gray-950 hover:underline flex items-center dark:text-gray-100"
           >
             <Instagram size={16} className="inline mr-1" />
             Instagram
@@ -330,17 +357,28 @@ export default function Home() {
       {/* Footer Section */}
       <footer className="container mx-auto mt-16 max-w-md sm:max-w-2xl p-4 sm:p-8">
         <motion.p
-          className="text-xs text-gray-500 border-t border-gray-100 pt-4"
+          className="text-xs text-gray-500 border-t border-gray-100 pt-4 dark:border-gray-800 dark:text-gray-400"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
         >
           © 2026{" "}
-          <span className="font-medium text-gray-700">Riza Nur Maulana</span> ·
-          All rights reserved.
+          <span className="font-medium text-gray-700 dark:text-gray-200">
+            Riza Nur Maulana
+          </span>{" "}
+          · All rights reserved.
         </motion.p>
       </footer>
+
+      <button
+        type="button"
+        onClick={() => setIsDark((prev) => !prev)}
+        className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 shadow-lg transition hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 cursor-pointer"
+        aria-label="Toggle dark mode"
+      >
+        {isDark ? <Sun size={20} /> : <Moon size={20} />}
+      </button>
     </main>
   );
 }
