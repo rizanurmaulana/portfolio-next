@@ -8,8 +8,45 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio built with Next.js",
+  metadataBase: new URL("https://portfolio-rizanurmaulana.vercel.app/"),
+  title: {
+    default: "Riza Nur Maulana | Web Developer Portfolio",
+    template: "%s | Riza Nur Maulana",
+  },
+  description:
+    "Portfolio of Riza Nur Maulana, a web developer specializing in responsive, user-friendly websites and modern web experiences.",
+  keywords: [
+    "Riza Nur Maulana",
+    "web developer",
+    "portfolio",
+    "Next.js",
+    "frontend developer",
+  ],
+  authors: [{ name: "Riza Nur Maulana" }],
+  creator: "Riza Nur Maulana",
+  publisher: "Riza Nur Maulana",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Riza Nur Maulana | Web Developer Portfolio",
+    description:
+      "Explore projects, skills, and web development work by Riza Nur Maulana.",
+    url: "https://portfolio-rizanurmaulana.vercel.app/",
+    siteName: "Riza Nur Maulana Portfolio",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Riza Nur Maulana | Web Developer Portfolio",
+    description:
+      "Explore projects, skills, and web development work by Riza Nur Maulana.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
