@@ -204,46 +204,67 @@ export default function Home() {
         </motion.p>
 
         <div className="mt-4 flex flex-col gap-4">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="w-full p-4 border border-gray-100 rounded-xl"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full object-cover aspect-video rounded-md"
-              />
-              <h3 className="font-semibold text-gray-950 mt-2 mb-1">
-                {project.title}
-              </h3>
-              <p className="text-sm text-gray-500">{project.desc}</p>
-              <div className="mt-4 flex gap-3">
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
-                >
-                  <Github size={16} />
-                  Repository
-                </a>
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
-                >
-                  <Globe size={16} />
-                  Live Demo
-                </a>
-              </div>
-            </motion.div>
-          ))}
+          {projects.map((project, index) => {
+            const hasRepoLink =
+              !!project.repo?.trim() && project.repo.trim() !== "#";
+            const hasDemoLink =
+              !!project.demo?.trim() && project.demo.trim() !== "#";
+
+            return (
+              <motion.div
+                key={index}
+                className="w-full p-4 border border-gray-100 rounded-xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full object-cover aspect-video rounded-md"
+                />
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {project.category.map((category) => (
+                    <span
+                      key={category}
+                      className="inline-flex items-center rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-700"
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="font-semibold text-gray-950 mt-2 mb-1">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-gray-500">{project.desc}</p>
+                <div className="mt-4 flex gap-3">
+                  {hasRepoLink && (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gray-950 px-4 h-9 inline-flex items-center gap-2 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition w-full sm:w-auto justify-center"
+                    >
+                      <Github size={16} />
+                      Repository
+                    </a>
+                  )}
+                  {hasDemoLink && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 h-9 inline-flex items-center gap-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition w-full sm:w-auto justify-center"
+                    >
+                      <Globe size={16} />
+                      Live Demo
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -315,7 +336,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
         >
-          © 2025{" "}
+          © 2026{" "}
           <span className="font-medium text-gray-700">Riza Nur Maulana</span> ·
           All rights reserved.
         </motion.p>
